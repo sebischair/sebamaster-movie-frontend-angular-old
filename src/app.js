@@ -12,8 +12,11 @@ import Routes from './config/routes';
 
 import AppView from './components/app-view/app-view';
 import MoviesView from './components/movies-view/movies-view';
+import MovieView from './components/movie-view/movie-view';
+import MovieEditView from './components/movie-edit-view/movie-edit-view';
 import ProfileView from './components/profile-view/profile-view';
-
+import RegisterView from './components/register-view/register-view';
+import LoginView from './components/login-view/login-view';
 
 let appModule = angular.module('app', [
     uiRouter,
@@ -21,7 +24,11 @@ let appModule = angular.module('app', [
     ngMdIcons,
     AppView.name,
     MoviesView.name,
-    ProfileView.name
+    MovieView.name,
+    MovieEditView.name,
+    ProfileView.name,
+    RegisterView.name,
+    LoginView.name
 ]);
 
 appModule.config(Routes);
