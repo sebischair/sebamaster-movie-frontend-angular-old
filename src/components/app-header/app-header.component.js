@@ -28,6 +28,10 @@ class AppHeaderComponentController{
         this.$state.go('movies',{});
     }
 
+    goLogin(){
+        this.$state.go('login',{});
+    }
+
     static get $inject(){
         return ['$state'];
     }

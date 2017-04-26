@@ -18,7 +18,7 @@ import MovieView from './components/movie-view/movie-view';
 import MovieEditView from './components/movie-edit-view/movie-edit-view';
 import ProfileView from './components/profile-view/profile-view';
 import RegisterView from './components/register-view/register-view';
-import LoginView from './components/login-view/login-view';
+import LoginView from './components/login-view/view-login';
 
 let appModule = angular.module('app', [
     uiRouter,

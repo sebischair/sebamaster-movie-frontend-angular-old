@@ -2,6 +2,7 @@
 'use strict';
 
 import template from './login-view.template.html';
+import './view-login.style.css';
 
 class LoginViewComponent {
     constructor(){

@@ -1,1 +1,29 @@
-<p>This is the login view</p>
+<div layout="column" layout-padding="">
+    <span flex="50"></span>
+    <md-content class="login-form" layout="row" flex="35">
+        <span flex="35"></span>
+        <md-card flex="30">
+            <md-card-content>
+                <form name="LoginForm">
+                    <md-input-container class="md-block">
+                        <label>Login</label>
+                        <input type="text" name="email" ng-model="$ctrl.login.email" placeholder="login" required=""/>
+                        <div ng-messages="LoginForm.email.$error" role="alert" multiple="">
+                            <div ng-message="required" class="my-message">Please enter your email.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <input type="password" name="password" ng-model="$ctrl.login.email" placeholder="password" required="" md-maxlength="64"/>
+                        <div ng-messages="LoginForm.password.$error" role="alert" multiple="">
+                            <div ng-message="required" class="my-message">Please enter your password.</div>
+                        </div>
+                    </md-input-container>
+                    <md-button ng-disabled="!LoginForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Login &nbsp</md-button>
+                </form>
+            </md-card-content>
+        </md-card>
+        <span flex></span>
+    </md-content>
+    <span flex></span>
+</div>
