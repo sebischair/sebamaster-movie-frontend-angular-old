@@ -2,6 +2,7 @@
 'use strict';
 
 import template from './app-header.template.html';
+import './app-header.style.css';
 
 class AppHeaderComponent {
     constructor(){
@@ -18,8 +19,17 @@ class AppHeaderComponent {
 }
 
 class AppHeaderComponentController{
-    constructor(){
+    constructor($state){
+        this.$state = $state;
+    }
 
+
+    goHome(){
+        this.$state.go('movies',{});
+    }
+
+    static get $inject(){
+        return ['$state'];
     }
 
 }

@@ -1,0 +1,7 @@
+footer {
+    max-height: 35px ;
+}
+
+footer > div > p {
+    margin-top: 4px;
+}

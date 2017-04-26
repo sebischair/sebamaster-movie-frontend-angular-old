@@ -22,7 +22,7 @@ class MoviesViewComponent {
 
 class MoviesViewComponentController{
     constructor($state){
-        this.$state = $state
+        this.$state = $state;
 
     }
 

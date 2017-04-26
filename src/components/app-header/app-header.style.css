@@ -1,0 +1,22 @@
+.md-button.md-default-theme.md-accent:not([disabled]) md-icon, .md-button.md-accent:not([disabled]) md-icon {
+    color: inherit;
+}
+
+md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected {
+    color: inherit;
+}
+
+.md-button.md-default-theme.md-accent, .md-button.md-accent {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+app-header > md-toolbar, app-header > md-toolbar > .md-toolbar-tools{
+    min-height: 50px;
+    height: 50px;
+}
+
+md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar {
+    color: #ffffff;
+    background: #ffffff;
+}

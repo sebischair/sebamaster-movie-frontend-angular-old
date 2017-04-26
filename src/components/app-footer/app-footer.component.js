@@ -2,6 +2,7 @@
 'use strict';
 
 import template from './app-footer.template.html';
+import './app-footer.style.css';
 
 class AppFooterComponent {
     constructor(){
@@ -19,7 +20,7 @@ class AppFooterComponent {
 
 class AppFooterComponentController{
     constructor(){
-
+        this.year = new Date().getFullYear();
     }
 
 }
