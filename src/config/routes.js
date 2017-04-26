@@ -7,8 +7,22 @@ import ProfileComponent from './../components/profile-view/profile-view.componen
 import RegisterComponent from './../components/register-view/register-view.component';
 import LoginComponent from './../components/login-view/login-view.component';
 
+import MovieService from './../services/movies/movies.service';
+
+
+resolveMovie.$inject = ['$stateParams', MovieService.name];
+function resolveMovie($stateParams,moviesService){
+    return moviesService.getMovie($stateParams.movieId);
+}
+
+resolveMovies.$inject = [MovieService.name];
+function resolveMovies(moviesService){
+    return moviesService.getMovies();
+}
+
+
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
-function config ($stateProvider, $urlRouterProvider){
+export default function config ($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, redirect to /home
     $urlRouterProvider.otherwise("/movies");
@@ -17,14 +31,24 @@ function config ($stateProvider, $urlRouterProvider){
         .state('movies', {
             url: '/movies',
             component: MoviesComponent.name,
+            resolve: {
+                movies : resolveMovies
+            }
         })
         .state('movie', {
-            url: '/movie',
+            url: '/movies/:movieId',
             component: MovieComponent.name,
+            resolve: {
+                movie : resolveMovie
+            }
+
         })
         .state('movieEdit', {
-            url: '/movie-edit',
+            url: '/movies/:movieId/edit',
             component: MovieEditComponent.name,
+            resolve: {
+                movie : resolveMovie
+            }
         })
         .state('profile', {
             url: '/profile',
@@ -42,5 +66,3 @@ function config ($stateProvider, $urlRouterProvider){
 
 }
 
-
-export default config;

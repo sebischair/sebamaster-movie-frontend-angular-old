@@ -10,6 +10,8 @@ import ngMdIcons from 'angular-material-icons';
 
 import Routes from './config/routes';
 
+import MoviesService from './services/movies/movies';
+
 import AppView from './components/app-view/app-view';
 import MoviesView from './components/movies-view/movies-view';
 import MovieView from './components/movie-view/movie-view';
@@ -22,6 +24,7 @@ let appModule = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    MoviesService.name,
     AppView.name,
     MoviesView.name,
     MovieView.name,
