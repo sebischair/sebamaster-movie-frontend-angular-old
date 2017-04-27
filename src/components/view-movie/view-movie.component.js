@@ -7,6 +7,9 @@ class ViewMovieComponent {
     constructor(){
         this.controller = ViewMovieComponentController;
         this.template = template;
+        this.bindings = {
+            movie: '<',
+        }
 
     }
 
@@ -18,8 +21,23 @@ class ViewMovieComponent {
 }
 
 class ViewMovieComponentController{
-    constructor(){
+    constructor($state){
+        this.$state = $state;
 
+    }
+
+    edit () {
+        let _id = this.movie['_id'];
+        this.$state.go('movieEdit',{ movieId:_id});
+    };
+
+
+    delete(movie) {
+        //ToDo
+    };
+
+    static get $inject(){
+        return ['$state'];
     }
 
 }
