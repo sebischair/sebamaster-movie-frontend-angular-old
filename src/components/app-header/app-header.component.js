@@ -29,7 +29,7 @@ class AppHeaderComponentController{
     }
 
     goLogin(){
-        this.$state.go('login',{});
+        this.$state.go('profile',{});
     }
 
     static get $inject(){
