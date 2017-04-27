@@ -1,11 +1,11 @@
 'use strict';
 
-import MoviesComponent from '../components/movies-view/movies-view.component';
-import MovieComponent from '../components/movie-view/movie-view.component';
-import MovieEditComponent from '../components/movie-edit-view/movie-edit-view.component';
-import ProfileComponent from './../components/profile-view/profile-view.component';
-import RegisterComponent from './../components/register-view/register-view.component';
-import LoginComponent from './../components/login-view/login-view.component';
+import MoviesComponent from '../components/view-movies/view-movies.component';
+import MovieComponent from '../components/view-movie/view-movie.component';
+import MovieEditComponent from '../components/view-movie-edit/view-movie-edit.component';
+import ProfileComponent from './../components/view-profile/view-profile.component';
+import RegisterComponent from './../components/view-register/view-register.component';
+import LoginComponent from './../components/view-login/view-login.component';
 
 import MovieService from './../services/movies/movies.service';
 

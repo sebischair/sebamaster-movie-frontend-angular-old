@@ -12,26 +12,26 @@ import Routes from './config/routes';
 
 import MoviesService from './services/movies/movies';
 
-import AppView from './components/app-view/app-view';
-import MoviesView from './components/movies-view/movies-view';
-import MovieView from './components/movie-view/movie-view';
-import MovieEditView from './components/movie-edit-view/movie-edit-view';
-import ProfileView from './components/profile-view/profile-view';
-import RegisterView from './components/register-view/register-view';
-import LoginView from './components/login-view/view-login';
+import AppContent from './components/app-content/app-content';
+import ViewMovies from './components/view-movies/view-movies';
+import ViewMovie from './components/view-movie/view-movie';
+import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
+import ViewProfile from './components/view-profile/view-profile';
+import ViewRegister from './components/view-register/view-register';
+import ViewLogin from './components/view-login/view-login';
 
 let appModule = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
     MoviesService.name,
-    AppView.name,
-    MoviesView.name,
-    MovieView.name,
-    MovieEditView.name,
-    ProfileView.name,
-    RegisterView.name,
-    LoginView.name
+    AppContent.name,
+    ViewMovies.name,
+    ViewMovie.name,
+    ViewMovieEdit.name,
+    ViewProfile.name,
+    ViewRegister.name,
+    ViewLogin.name
 ]);
 
 appModule.config(Routes);

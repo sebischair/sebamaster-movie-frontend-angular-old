@@ -1,11 +1,11 @@
 
 'use strict';
 
-import template from './movies-view.template.html';
+import template from './view-movies.template.html';
 
-class MoviesViewComponent {
+class ViewMoviesComponent {
     constructor(){
-        this.controller = MoviesViewComponentController;
+        this.controller = ViewMoviesComponentController;
         this.template = template;
         this.bindings = {
             movies: '<',
@@ -14,13 +14,13 @@ class MoviesViewComponent {
     }
 
     static get name() {
-        return 'moviesView';
+        return 'viewMovies';
     }
 
 
 }
 
-class MoviesViewComponentController{
+class ViewMoviesComponentController{
     constructor($state){
         this.$state = $state;
 
@@ -48,4 +48,4 @@ class MoviesViewComponentController{
 
 }
 
-export default MoviesViewComponent;
+export default ViewMoviesComponent;
