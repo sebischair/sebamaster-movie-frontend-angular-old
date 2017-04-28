@@ -36,6 +36,26 @@ class ViewMovieComponentController{
         //ToDo
     };
 
+
+    getPosterURL(){
+
+        let posterURL = '';
+
+        if (this.movie.posters.hasOwnProperty('thumbnail')) {
+            posterURL = this.movie.posters.thumbnail;
+        } else if (this.movie.posters.hasOwnProperty('profile')) {
+            posterURL = this.movie.posters.profile;
+        } else if (this.movie.posters.hasOwnProperty('detailed')) {
+            posterURL = this.movie.posters.detailed;
+        } else if (this.movie.posters.hasOwnProperty('original')) {
+            posterURL = this.movie.posters.original;
+        } else {
+            posterURL ='http://placehold.it/32x32';
+        }
+
+        return posterURL;
+    }
+
     static get $inject(){
         return ['$state'];
     }

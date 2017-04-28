@@ -1,15 +1,17 @@
 'use strict';
 
-import Data from './movies.data';
-
-
 
 export default class MoviesServiceDefinition {
 
-    constructor() {
+    static get $inject(){
+        return ['$http'];
+    }
 
-        this.asyncMovies = Data.asyncMovies;
-        this.asyncMovie = Data.asyncMovie;
+    constructor($http) {
+
+        this.$http = $http;
+
+
 
     }
 
@@ -19,24 +21,26 @@ export default class MoviesServiceDefinition {
 
      getMovies() {
 
-        return this.asyncMovies().then(data => {
+         let resourceUrl = 'http://3f47ea84.ngrok.io/api/movies';
+         return this.$http.get(resourceUrl).then(responce => {
+
 
             return new Promise((resolve, reject) => {
-                resolve(data);
+                resolve(responce.data);
 
             });
 
         });
 
-
     }
 
     getMovie(movieId) {
 
-        return this.asyncMovie(movieId).then(data => {
+        let resourceUrl = `http://3f47ea84.ngrok.io/api/movies/${ movieId }`;
+        return this.$http.get(resourceUrl).then(responce => {
 
             return new Promise((resolve, reject) => {
-                resolve(data);
+                resolve(responce.data);
             });
 
         })

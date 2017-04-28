@@ -8,9 +8,10 @@ import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
 
-import Routes from './config/routes';
-
+import AuthenticationService from './services/authentication/authentication';
 import MoviesService from './services/movies/movies';
+
+import Routes from './config/routes';
 
 import AppContent from './components/app-content/app-content';
 import ViewMovies from './components/view-movies/view-movies';
@@ -24,6 +25,7 @@ let appModule = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    AuthenticationService.name,
     MoviesService.name,
     AppContent.name,
     ViewMovies.name,
@@ -34,7 +36,9 @@ let appModule = angular.module('app', [
     ViewLogin.name
 ]);
 
+
 appModule.config(Routes);
+
 
 angular.element(document).ready(function() {
     return angular.bootstrap(document.body, [appModule.name], {
