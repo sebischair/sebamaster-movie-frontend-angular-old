@@ -1,8 +1,10 @@
 'use strict';
 
 
-middlewares.$inject = ['$httpProvider','$window','API_URL'];
-export default function middlewares ($httpProvider,$window,API_URL){
+middlewares.$inject = ['$httpProvider','$windowProvider','API_URL'];
+export default function middlewares ($httpProvider,$windowProvider,API_URL){
+
+    let $window = $windowProvider.$get();
 
     // alternatively, register the interceptor via an anonymous factory
     $httpProvider.interceptors.push(() => {
