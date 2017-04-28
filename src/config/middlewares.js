@@ -2,7 +2,7 @@
 
 
 middlewares.$inject = ['$httpProvider','$window','API_URL'];
-export default function middlewares ($httpProvider,AuthenticationService,$window,API_URL){
+export default function middlewares ($httpProvider,$window,API_URL){
 
     // alternatively, register the interceptor via an anonymous factory
     $httpProvider.interceptors.push(() => {
