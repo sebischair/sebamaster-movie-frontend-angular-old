@@ -8,7 +8,6 @@ import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
 
-import AuthenticationService from './services/authentication/authentication';
 import MoviesService from './services/movies/movies';
 
 import Routes from './config/routes';
@@ -26,7 +25,6 @@ let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
-    AuthenticationService.name,
     MoviesService.name,
     AppContent.name,
     ViewMovies.name,

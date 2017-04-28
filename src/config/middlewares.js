@@ -1,9 +1,7 @@
 'use strict';
 
 
-import AuthenticationService from './../services/authentication/authentication.service';
-
-middlewares.$inject = ['$httpProvider',AuthenticationService.name,'$window','API_URL'];
+middlewares.$inject = ['$httpProvider','$window','API_URL'];
 export default function middlewares ($httpProvider,AuthenticationService,$window,API_URL){
 
     // alternatively, register the interceptor via an anonymous factory
@@ -12,7 +10,7 @@ export default function middlewares ($httpProvider,AuthenticationService,$window
             'request': (config) => {
 
                 //Making a request to the API Server
-                if(config.url.indexOf(API_URL) === 0 && AuthenticationService.isAuthenticated()) {
+                if(config.url.indexOf(API_URL) === 0) {
 
                     let token = $window.localStorage['jwtToken'];
                     config.headers.Authorization = 'JWT ' + token;
