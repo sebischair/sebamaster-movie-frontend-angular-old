@@ -12,12 +12,12 @@ import MoviesService from './../services/movies/movies.service';
 
 resolveMovie.$inject = ['$stateParams', MoviesService.name];
 function resolveMovie($stateParams,moviesService){
-    return moviesService.getMovie($stateParams.movieId);
+    return moviesService.get($stateParams.movieId);
 }
 
 resolveMovies.$inject = [MoviesService.name];
 function resolveMovies(moviesService){
-    return moviesService.getMovies();
+    return moviesService.list();
 }
 
 

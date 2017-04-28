@@ -12,6 +12,7 @@ import AuthenticationService from './services/authentication/authentication';
 import MoviesService from './services/movies/movies';
 
 import Routes from './config/routes';
+import middlewares from './config/middlewares';
 
 import AppContent from './components/app-content/app-content';
 import ViewMovies from './components/view-movies/view-movies';
@@ -21,7 +22,7 @@ import ViewProfile from './components/view-profile/view-profile';
 import ViewRegister from './components/view-register/view-register';
 import ViewLogin from './components/view-login/view-login';
 
-let appModule = angular.module('app', [
+let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
@@ -36,14 +37,15 @@ let appModule = angular.module('app', [
     ViewLogin.name
 ]);
 
-appModule.constant('API_URL', 'http://3f47ea84.ngrok.io/api/');
-appModule.config(Routes);
+app.constant('API_URL', 'http://3f47ea84.ngrok.io/api/');
+app.config(Routes);
+app.config(middlewares);
 
 
 angular.element(document).ready(function() {
-    return angular.bootstrap(document.body, [appModule.name], {
+    return angular.bootstrap(document.body, [app.name], {
         strictDi: true
     });
 });
 
-export default appModule;
+export default app;

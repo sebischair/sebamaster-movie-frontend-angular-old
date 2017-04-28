@@ -17,7 +17,7 @@ export default class MoviesServiceDefinition {
         return 'moviesService';
     }
 
-     getMovies() {
+    list() {
 
         let url = this.resourceUrl;
         return this.$http.get(url).then(responce => {
@@ -31,7 +31,7 @@ export default class MoviesServiceDefinition {
 
     }
 
-    getMovie(id) {
+    get(id) {
         let url = `${ this.resourceUrl }${ id }`;
         return this.$http.get(url).then(responce => {
 
@@ -43,7 +43,7 @@ export default class MoviesServiceDefinition {
     }
 
 
-    createMovie(movie) {
+    create(movie) {
 
         let url = this.resourceUrl;
         return this.$http.post(resourceUrl,movie).then(responce => {
@@ -55,7 +55,7 @@ export default class MoviesServiceDefinition {
         })
     }
 
-    deleteMovie(id) {
+    delete(id) {
         let url = `${ this.resourceUrl }${ id }`;
 
         return this.$http.delete(resourceUrl).then(responce => {
@@ -67,7 +67,7 @@ export default class MoviesServiceDefinition {
         })
     }
 
-    updateMovie(movie) {
+    update(movie) {
 
         let url = `${ this.resourceUrl }${ movie['_id'] }`;
 
