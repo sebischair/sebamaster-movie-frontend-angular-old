@@ -36,7 +36,7 @@ let appModule = angular.module('app', [
     ViewLogin.name
 ]);
 
-
+appModule.constant('API_URL', 'http://3f47ea84.ngrok.io/api/');
 appModule.config(Routes);
 
 
