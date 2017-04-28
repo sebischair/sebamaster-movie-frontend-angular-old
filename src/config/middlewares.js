@@ -1,7 +1,10 @@
 'use strict';
 
-middlewares.$inject = ['$httpProvider','API_URL'];
-export default function middlewares ($httpProvider,API_URL){
+
+import AuthenticationService from './../services/authentication/authentication.service';
+
+middlewares.$inject = ['$httpProvider',AuthenticationService.name,'$window','API_URL'];
+export default function middlewares ($httpProvider,AuthenticationService,$window,API_URL){
 
     // alternatively, register the interceptor via an anonymous factory
     $httpProvider.interceptors.push(() => {
@@ -9,8 +12,11 @@ export default function middlewares ($httpProvider,API_URL){
             'request': (config) => {
 
                 //Making a request to the API Server
-                if(config.url.indexOf(API_URL) === 0 ) {
-                    console.log('request',config)
+                if(config.url.indexOf(API_URL) === 0 && AuthenticationService.isAuthenticated()) {
+
+                    let token = $window.localStorage['jwtToken'];
+                    config.headers.Authorization = 'JWT ' + token;
+
                 }
 
 
@@ -18,10 +24,13 @@ export default function middlewares ($httpProvider,API_URL){
             },
             'response': function(response) {
 
-
                 //Receiving response from  the API Server
-                if(response.config.url.indexOf(API_URL) === 0 ) {
-                    console.log('response',response.config)
+                if(response && response.config.url.indexOf(API_URL) === 0 ) {
+
+                    // If a token was sent back, save it
+                    if(response.data.hasOwnProperty('token')) {
+                        $window.localStorage['jwtToken'] = response.data.token;
+                    }
 
                 }
 
