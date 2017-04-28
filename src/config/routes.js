@@ -7,15 +7,15 @@ import ProfileComponent from './../components/view-profile/view-profile.componen
 import RegisterComponent from './../components/view-register/view-register.component';
 import LoginComponent from './../components/view-login/view-login.component';
 
-import MovieService from './../services/movies/movies.service';
+import MoviesService from './../services/movies/movies.service';
 
 
-resolveMovie.$inject = ['$stateParams', MovieService.name];
+resolveMovie.$inject = ['$stateParams', MoviesService.name];
 function resolveMovie($stateParams,moviesService){
     return moviesService.getMovie($stateParams.movieId);
 }
 
-resolveMovies.$inject = [MovieService.name];
+resolveMovies.$inject = [MoviesService.name];
 function resolveMovies(moviesService){
     return moviesService.getMovies();
 }
