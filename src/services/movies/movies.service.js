@@ -1,7 +1,7 @@
 'use strict';
 
 
-export default class MoviesServiceDefinition {
+export default class MoviesService {
 
     static get $inject(){
         return ['$http', 'API_URL'];
@@ -44,9 +44,8 @@ export default class MoviesServiceDefinition {
 
 
     create(movie) {
-
         let url = this.resourceUrl;
-        return this.$http.post(resourceUrl,movie).then(responce => {
+        return this.$http.post(url,movie).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
@@ -57,8 +56,7 @@ export default class MoviesServiceDefinition {
 
     delete(id) {
         let url = `${ this.resourceUrl }${ id }`;
-
-        return this.$http.delete(resourceUrl).then(responce => {
+        return this.$http.delete(url).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.status);
@@ -70,8 +68,7 @@ export default class MoviesServiceDefinition {
     update(movie) {
 
         let url = `${ this.resourceUrl }${ movie['_id'] }`;
-
-        return this.$http.get(resourceUrl).then(responce => {
+        return this.$http.put(url,movie).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);

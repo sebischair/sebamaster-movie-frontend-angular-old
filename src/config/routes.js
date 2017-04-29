@@ -1,10 +1,8 @@
 'use strict';
 
-import MoviesComponent from '../components/view-movies/view-movies.component';
-import MovieComponent from '../components/view-movie/view-movie.component';
-import MovieEditComponent from '../components/view-movie-edit/view-movie-edit.component';
-import ProfileComponent from './../components/view-profile/view-profile.component';
-import RegisterComponent from './../components/view-register/view-register.component';
+import MoviesComponent from './../components/view-movies/view-movies.component';
+import MovieComponent from './../components/view-movie/view-movie.component';
+import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.component';
 import LoginComponent from './../components/view-login/view-login.component';
 
 import MoviesService from './../services/movies/movies.service';
@@ -49,14 +47,6 @@ export default function config ($stateProvider, $urlRouterProvider){
             resolve: {
                 movie : resolveMovie
             }
-        })
-        .state('profile', {
-            url: '/profile',
-            component: ProfileComponent.name,
-        })
-        .state('register', {
-            url: '/register',
-            component: RegisterComponent.name,
         })
         .state('login', {
             url: '/login',

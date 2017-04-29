@@ -11,14 +11,12 @@ import ngMdIcons from 'angular-material-icons';
 import MoviesService from './services/movies/movies';
 
 import Routes from './config/routes';
-import middlewares from './config/middlewares';
+import Middlewares from './config/middlewares';
 
 import AppContent from './components/app-content/app-content';
 import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
-import ViewProfile from './components/view-profile/view-profile';
-import ViewRegister from './components/view-register/view-register';
 import ViewLogin from './components/view-login/view-login';
 
 let app = angular.module('app', [
@@ -30,14 +28,12 @@ let app = angular.module('app', [
     ViewMovies.name,
     ViewMovie.name,
     ViewMovieEdit.name,
-    ViewProfile.name,
-    ViewRegister.name,
     ViewLogin.name
 ]);
 
-app.constant('API_URL', 'http://3f47ea84.ngrok.io/api/');
+app.constant('API_URL', 'http://3f47ea84.ngrok.io/api');
 app.config(Routes);
-app.config(middlewares);
+app.config(Middlewares);
 
 
 angular.element(document).ready(function() {
