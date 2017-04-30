@@ -1,7 +1,10 @@
 
 'use strict';
 
+import UserService from './../../services/user/user.service';
+
 import template from './app-header.template.html';
+
 import './app-header.style.css';
 
 class AppHeaderComponent {
@@ -19,8 +22,22 @@ class AppHeaderComponent {
 }
 
 class AppHeaderComponentController{
-    constructor($state){
+    constructor($state,UserService){
         this.$state = $state;
+        this.UserService = UserService;
+
+    }
+
+    openMenu($mdMenu, ev) {
+        $mdMenu.open(ev);
+    }
+
+    isAuthenticated(){
+        return this.UserService.isAuthenticated();
+    }
+
+    getCurrentUser(){
+        return this.UserService.getCurrentUser();
     }
 
 
@@ -28,12 +45,16 @@ class AppHeaderComponentController{
         this.$state.go('movies',{});
     }
 
-    goLogin(){
-        this.$state.go('profile',{});
+    login(){
+        this.$state.go('login',{});
+    }
+
+    logout(){
+        this.UserService.logout();
     }
 
     static get $inject(){
-        return ['$state'];
+        return ['$state', UserService.name];
     }
 
 }

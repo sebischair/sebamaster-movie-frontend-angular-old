@@ -32,6 +32,10 @@ export default class UserService {
         });
     }
 
+    logout(){
+        $window.localStorage.removeItem('jwtToken');
+    }
+
     getCurrentUser() {
         let token = this.$window.localStorage['jwtToken'];
         if (!token) return {};

@@ -9,8 +9,32 @@
         <span flex></span>
 
         <span flex="5"></span>
-        <md-button class="md-icon-button" aria-label="More" ng-click="$ctrl.goLogin()" >
-            <md-icon><ng-md-icon icon="more_vert" ></ng-md-icon></md-icon>
-        </md-button>
+        <md-menu>
+            <md-button aria-label="More" class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu, $event)">
+                <md-icon><ng-md-icon icon="more_vert" ></ng-md-icon></md-icon>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item ng-if="$ctrl.isAuthenticated()">
+                    <md-button>
+                        <md-icon md-menu-align-target><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
+                        {{$ctrl.getCurrentUser()}}
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider ng-if="$ctrl.isAuthenticated()"></md-menu-divider>
+                <md-menu-item ng-if="$ctrl.isAuthenticated()">
+                    <md-button ng-click="$ctrl.logout($event)">
+                        <md-icon md-menu-align-target><ng-md-icon icon="logout" ></ng-md-icon></md-icon>
+                        Logout
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item ng-if="!$ctrl.isAuthenticated()">
+                    <md-button ng-click="$ctrl.login($event)">
+                        <md-icon md-menu-align-target><ng-md-icon icon="login" ></ng-md-icon></md-icon>
+                        Login
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
     </div>
 </md-toolbar>
