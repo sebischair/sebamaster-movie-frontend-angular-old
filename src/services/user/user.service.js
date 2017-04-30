@@ -15,7 +15,7 @@ export default class UserService {
     }
 
     static get name(){
-        return 'userService';
+        return 'UserService';
     }
 
     register(user, pass) {

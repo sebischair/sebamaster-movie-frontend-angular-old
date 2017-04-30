@@ -9,6 +9,7 @@ import 'angular-material/angular-material.css';
 import ngMdIcons from 'angular-material-icons';
 
 import MoviesService from './services/movies/movies';
+import UserService from './services/user/user';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -23,6 +24,7 @@ let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    UserService.name,
     MoviesService.name,
     AppContent.name,
     ViewMovies.name,

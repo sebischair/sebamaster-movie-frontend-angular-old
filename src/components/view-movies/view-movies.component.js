@@ -2,6 +2,8 @@
 'use strict';
 
 import template from './view-movies.template.html';
+import MoviesService from './../../services/movies/movies.service';
+
 
 class ViewMoviesComponent {
     constructor(){
@@ -21,8 +23,9 @@ class ViewMoviesComponent {
 }
 
 class ViewMoviesComponentController{
-    constructor($state){
+    constructor($state,MoviesService){
         this.$state = $state;
+        this.MoviesService = MoviesService;
 
     }
 
@@ -38,12 +41,16 @@ class ViewMoviesComponentController{
 
 
     delete(movie) {
-        //ToDo
+        let _id = movie['_id'];
+
+        this.MoviesService.delete(_id).then(response => {
+            this.$state.go('movies',{});
+        });
     };
 
 
     static get $inject(){
-        return ['$state'];
+        return ['$state', MoviesService.name];
     }
 
 }

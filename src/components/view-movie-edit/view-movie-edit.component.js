@@ -3,6 +3,8 @@
 
 import template from './view-movie-edit.template.html';
 
+import MoviesService from './../../services/movies/movies.service';
+
 class ViewMovieEditComponent {
     constructor(){
         this.controller = ViewMovieEditComponentController;
@@ -18,9 +20,10 @@ class ViewMovieEditComponent {
 }
 
 class ViewMovieEditComponentController{
-    constructor($state){
+    constructor($state, MoviesService){
         this.model = {};
         this.$state = $state;
+        this.MoviesService = MoviesService;
     }
 
     $onInit() {
@@ -34,11 +37,25 @@ class ViewMovieEditComponentController{
 
     update() {
         let _id = this.movie['_id'];
-        this.$state.go('movie',{ movieId:_id});
+
+        this.MoviesService.update(this.model).then(data => {
+            this.movie = JSON.parse(JSON.stringify(data));
+
+            this.$state.go('movie',{ movieId:_id});
+        });
+
+    };
+
+    delete() {
+        let _id = this.movie['_id'];
+
+        this.MoviesService.delete(_id).then(response => {
+            this.$state.go('movies',{});
+        });
     };
 
     static get $inject(){
-        return ['$state'];
+        return ['$state', MoviesService.name];
     }
 
 }

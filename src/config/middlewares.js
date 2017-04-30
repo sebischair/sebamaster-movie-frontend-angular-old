@@ -1,12 +1,14 @@
 'use strict';
 
 
-middlewares.$inject = ['$httpProvider','$windowProvider','API_URL'];
-export default function middlewares ($httpProvider,$windowProvider,API_URL){
+middlewares.$inject = ['$httpProvider','$windowProvider','$qProvider','$stateProvider','API_URL'];
+export default function middlewares ($httpProvider,$windowProvider,$qProvider,$stateProvider,API_URL){
 
     let $window = $windowProvider.$get();
+    let $state = $stateProvider.$get();
+    let $q = $qProvider.$get();
 
-    // alternatively, register the interceptor via an anonymous factory
+    //  register the JWT interceptor via an anonymous factory
     $httpProvider.interceptors.push(() => {
         return {
             'request': (config) => {
@@ -15,7 +17,10 @@ export default function middlewares ($httpProvider,$windowProvider,API_URL){
                 if(config.url.indexOf(API_URL) === 0) {
 
                     let token = $window.localStorage['jwtToken'];
-                    config.headers.Authorization = 'JWT ' + token;
+
+                    if (token) {
+                        config.headers.Authorization = 'JWT ' + token;
+                    }
 
                 }
 
@@ -38,5 +43,22 @@ export default function middlewares ($httpProvider,$windowProvider,API_URL){
             }
         };
     });
+
+    //  register the Error interceptor via an anonymous factory
+    $httpProvider.interceptors.push(() => {
+        return {
+            'responseError': function(rejection) {
+
+                // do something on error
+                if(rejection.status == 400 || rejection.status == 401) {
+                    $state.go('login',{});
+                }
+
+                return $q.reject(rejection);
+            }
+
+        };
+    });
+
 
 }
