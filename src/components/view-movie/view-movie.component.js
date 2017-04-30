@@ -2,6 +2,8 @@
 'use strict';
 
 import template from './view-movie.template.html';
+import MoviesService from './../../services/movies/movies.service';
+import UserService from './../../services/user/user.service';
 
 class ViewMovieComponent {
     constructor(){
@@ -21,19 +23,35 @@ class ViewMovieComponent {
 }
 
 class ViewMovieComponentController{
-    constructor($state){
+    constructor($state,MoviesService,UserService){
         this.$state = $state;
+        this.MoviesService = MoviesService;
+        this.UserService = UserService;
 
     }
 
     edit () {
-        let _id = this.movie['_id'];
-        this.$state.go('movieEdit',{ movieId:_id});
+
+        if (this.UserService.isAuthenticated()) {
+            let _id = this.movie['_id'];
+            this.$state.go('movieEdit',{ movieId:_id});
+        } else {
+            this.$state.go('login',{});
+        }
+
     };
 
 
-    delete(movie) {
-        //ToDo
+    delete() {
+        if (this.UserService.isAuthenticated()) {
+            let _id = this.movie['_id'];
+
+            this.MoviesService.delete(_id).then(response => {
+                this.$state.go('movies',{});
+            });
+        } else {
+            this.$state.go('login',{});
+        }
     };
 
 
@@ -57,7 +75,7 @@ class ViewMovieComponentController{
     }
 
     static get $inject(){
-        return ['$state'];
+        return ['$state', MoviesService.name, UserService.name];
     }
 
 }
