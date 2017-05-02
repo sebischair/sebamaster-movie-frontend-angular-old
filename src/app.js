@@ -33,7 +33,7 @@ let app = angular.module('app', [
     ViewLogin.name
 ]);
 
-app.constant('API_URL', 'http://3f47ea84.ngrok.io/api');
+app.constant('API_URL', 'http://5aee6f28.ngrok.io');
 app.config(Routes);
 app.config(Middlewares);
 
