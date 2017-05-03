@@ -37,7 +37,8 @@ class AppHeaderComponentController{
     }
 
     getCurrentUser(){
-        return this.UserService.getCurrentUser();
+        let user = this.UserService.getCurrentUser();
+        return user.username;
     }
 
 
@@ -51,6 +52,7 @@ class AppHeaderComponentController{
 
     logout(){
         this.UserService.logout();
+        this.$state.go('movies',{});
     }
 
     static get $inject(){
