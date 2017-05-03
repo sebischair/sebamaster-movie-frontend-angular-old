@@ -1,0 +1,34 @@
+<div layout="column" layout-padding>
+    <md-content class="md-no-momentum">
+        <h1> {{$ctrl.movie.title}} </h1>
+        <br/>
+        <form name="movieForm">
+            <md-input-container class="md-icon-float md-block">
+                <label>Title</label>
+                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.movie.title" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Year</label>
+                <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.movie.year" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>MPAA Rating</label>
+                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.movie.mpaa_rating" type="text">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Synopsis</label>
+                <textarea ng-model="$ctrl.movie.synopsis" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
+            </md-input-container>
+            <div layout="row">
+                <span flex></span>
+                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
+                <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
+            </div>
+
+        </form>
+    </md-content>
+
+</div>

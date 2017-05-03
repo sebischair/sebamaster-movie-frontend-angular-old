@@ -3,6 +3,7 @@
 import MoviesComponent from './../components/view-movies/view-movies.component';
 import MovieComponent from './../components/view-movie/view-movie.component';
 import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.component';
+import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 
 import MoviesService from './../services/movies/movies.service';
@@ -32,6 +33,10 @@ export default function config ($stateProvider, $urlRouterProvider){
             resolve: {
                 movies : resolveMovies
             }
+        })
+        .state('movieAdd', {
+            url: '/movies/new',
+            component: MovieCreateComponent.name
         })
         .state('movie', {
             url: '/movies/:movieId',

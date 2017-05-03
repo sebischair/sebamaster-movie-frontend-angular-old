@@ -13,7 +13,6 @@ class ViewMoviesComponent {
         this.bindings = {
             movies: '<',
         }
-
     }
 
     static get name() {
@@ -45,6 +44,16 @@ class ViewMoviesComponentController{
             this.$state.go('login',{});
         }
     };
+
+    newMovie(){
+
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('movieAdd',{});
+        } else {
+            this.$state.go('login',{});
+        }
+
+    }
 
 
     delete(movie) {

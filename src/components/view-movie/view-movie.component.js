@@ -56,9 +56,7 @@ class ViewMovieComponentController{
 
 
     getPosterURL(){
-
         let posterURL = 'http://placehold.it/32x32';
-
         if (this.movie.hasOwnProperty('posters')) {
             if (this.movie.posters.hasOwnProperty('thumbnail')) {
                 posterURL = this.movie.posters.thumbnail;
@@ -70,7 +68,6 @@ class ViewMovieComponentController{
                 posterURL = this.movie.posters.original;
             }
         }
-
         return posterURL;
     }
 
