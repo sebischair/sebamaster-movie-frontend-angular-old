@@ -18,6 +18,7 @@ import AppContent from './components/app-content/app-content';
 import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
+import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
 
 let app = angular.module('app', [
@@ -30,6 +31,7 @@ let app = angular.module('app', [
     ViewMovies.name,
     ViewMovie.name,
     ViewMovieEdit.name,
+    ViewMovieCreate.name,
     ViewLogin.name
 ]);
 

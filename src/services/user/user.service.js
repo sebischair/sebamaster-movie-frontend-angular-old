@@ -33,7 +33,7 @@ export default class UserService {
     }
 
     logout(){
-        $window.localStorage.removeItem('jwtToken');
+        this.$window.localStorage.removeItem('jwtToken');
     }
 
     getCurrentUser() {

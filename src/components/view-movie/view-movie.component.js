@@ -56,21 +56,18 @@ class ViewMovieComponentController{
 
 
     getPosterURL(){
-
-        let posterURL = '';
-
-        if (this.movie.posters.hasOwnProperty('thumbnail')) {
-            posterURL = this.movie.posters.thumbnail;
-        } else if (this.movie.posters.hasOwnProperty('profile')) {
-            posterURL = this.movie.posters.profile;
-        } else if (this.movie.posters.hasOwnProperty('detailed')) {
-            posterURL = this.movie.posters.detailed;
-        } else if (this.movie.posters.hasOwnProperty('original')) {
-            posterURL = this.movie.posters.original;
-        } else {
-            posterURL ='http://placehold.it/32x32';
+        let posterURL = 'http://placehold.it/32x32';
+        if (this.movie.hasOwnProperty('posters')) {
+            if (this.movie.posters.hasOwnProperty('thumbnail')) {
+                posterURL = this.movie.posters.thumbnail;
+            } else if (this.movie.posters.hasOwnProperty('profile')) {
+                posterURL = this.movie.posters.profile;
+            } else if (this.movie.posters.hasOwnProperty('detailed')) {
+                posterURL = this.movie.posters.detailed;
+            } else {
+                posterURL = this.movie.posters.original;
+            }
         }
-
         return posterURL;
     }
 

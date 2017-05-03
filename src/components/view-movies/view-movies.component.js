@@ -13,7 +13,6 @@ class ViewMoviesComponent {
         this.bindings = {
             movies: '<',
         }
-
     }
 
     static get name() {
@@ -46,14 +45,26 @@ class ViewMoviesComponentController{
         }
     };
 
+    newMovie(){
+
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('movieAdd',{});
+        } else {
+            this.$state.go('login',{});
+        }
+
+    }
+
 
     delete(movie) {
         if (this.UserService.isAuthenticated()) {
             let _id = movie['_id'];
 
             this.MoviesService.delete(_id).then(response => {
-                this.$state.go('movies',{});
-            });
+                let index = this.movies.map(x => x['_id']).indexOf(_id);
+                this.movies.splice(index, 1);
+            })
+
         } else {
             this.$state.go('login',{});
         }
