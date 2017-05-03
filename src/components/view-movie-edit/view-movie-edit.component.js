@@ -31,11 +31,12 @@ class ViewMovieEditComponentController{
         this.model = JSON.parse(JSON.stringify(this.movie))
     }
 
-    reset() {
+    cancel() {
         this.model = JSON.parse(JSON.stringify(this.movie));
+        this.$state.go('movies',{});
     };
 
-    update() {
+    save() {
         let _id = this.movie['_id'];
 
         this.MoviesService.update(this.model).then(data => {
