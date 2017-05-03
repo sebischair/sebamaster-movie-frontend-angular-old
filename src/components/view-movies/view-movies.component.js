@@ -52,8 +52,10 @@ class ViewMoviesComponentController{
             let _id = movie['_id'];
 
             this.MoviesService.delete(_id).then(response => {
-                this.$state.go('movies',{});
-            });
+                let index = this.movies.map(x => x['_id']).indexOf(_id);
+                this.movies.splice(index, 1);
+            })
+
         } else {
             this.$state.go('login',{});
         }
