@@ -20,7 +20,7 @@ You need git to clone the [sebamaster-movie-frontend](https://github.com/adrianh
 We also use a number of node.js tools to initialize and test [sebamaster-movie-frontend](https://github.com/adrianhdezm/sebamaster-movie-frontend/) . You must have node.js and
 its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
-### Clone angular-seed
+### Clone Movie Project
 
 Clone the [sebamaster-movie-frontend](https://github.com/adrianhdezm/sebamaster-movie-frontend/)  repository using [git](http://git-scm.com/):
 
