@@ -1,5 +1,5 @@
 # sebamaster-movie-frontend application
-Movies example application based on AngularJS. Backend can be found [here](https://github.com/sebischair/sebamaster-movie-backend/overview)
+Movies example application based on AngularJS. Backend can be found [here](https://github.com/sebischair/sebamaster-movie-backend)
 
 ## Prerequisites
 
