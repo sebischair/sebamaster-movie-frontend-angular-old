@@ -35,6 +35,12 @@ git clone --depth=1 https://github.com/sebischair/sebamaster-movie-frontend.git 
 
 The `depth=1` tells git to only pull down one commit worth of historical data.
 
+In case you would like to try the application without a server you can use the branch <severless>
+
+```bash
+git clone -b serverless --depth=1 https://github.com/sebischair/sebamaster-movie-frontend.git <your-project-name>
+```
+
 ### Install Dependencies
 
 We get the tools we depend upon via `npm`, the [node package manager](https://www.npmjs.com).
