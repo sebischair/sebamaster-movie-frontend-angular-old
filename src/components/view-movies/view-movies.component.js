@@ -23,8 +23,9 @@ class ViewMoviesComponent {
 }
 
 class ViewMoviesComponentController{
-    constructor($state,MoviesService,UserService){
+    constructor($state,$scope,MoviesService,UserService){
         this.$state = $state;
+        this.$scope = $scope;
         this.MoviesService = MoviesService;
         this.UserService = UserService;
 
@@ -63,6 +64,7 @@ class ViewMoviesComponentController{
             this.MoviesService.delete(_id).then(response => {
                 let index = this.movies.map(x => x['_id']).indexOf(_id);
                 this.movies.splice(index, 1);
+                this.$scope.$apply();
             })
 
         } else {
@@ -72,7 +74,7 @@ class ViewMoviesComponentController{
 
 
     static get $inject(){
-        return ['$state', MoviesService.name, UserService.name];
+        return ['$state', '$scope' ,MoviesService.name, UserService.name];
     }
 
 }
